@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router'
+import { useStytch, useStytchSession } from "@stytch/stytch-react"
 
 export const Authenticate = () => {
     const client = useStytch()
