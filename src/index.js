@@ -4,14 +4,21 @@ import { App } from "./App";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
+import { StytchProvider, initStytch } from "@stytch/stytch-react";
+
+const stytch = initStytch(
+  "public-token-live-2f9347c6-5da9-4599-a2d4-63b1ea807719"
+);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>
+    <React.StrictMode>
+      <StytchProvider stytch={stytch}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </StytchProvider>
+    </React.StrictMode>
 );
 
 // If you want your app to work offline and load faster, you can change

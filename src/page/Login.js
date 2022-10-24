@@ -1,46 +1,26 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useStytch } from "@stytch/stytch-react";
+import { useState } from "react";
+import { useNavigate } from "react-router";
 
 export const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const handleLogin = (event) => {
-    event.preventDefault();
-    console.log({ email, password });
+    const [email, setEmail] = useState("")
+  const client = useStytch();
+  const navigate = useNavigate()
+
+  const handleLogin = async () => {
+    await client.magicLinks.email.loginOrCreate();
+    alert("Login successfully")
+    navigate("/account")
   };
+
   return (
-    <div
-      style={{
-        width: "50%",
-        height: "80%",
-        margin: "2% auto",
-      }}
-    >
-      <form
-        onSubmit={handleLogin}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-around",
-          alignItems: "center",
-        }}
-      >
-        <input
-          name="email"
-          onChange={(event) => setEmail(event.target.value)}
-        />
-        <br />
-        <input
-          name="password"
-          onChange={(event) => setPassword(event.target.value)}
-        />
-        <br />
-        <NavLink to="/account">
-          <button>Login</button>
-        </NavLink>
-        <br />
-        <button>Cancel</button>
-      </form>
+    <div style={{ paddingBottom: "25px" }}>
+      <input
+        name="email"
+        value={email}
+        onChange={(event) => setEmail(event.target.value)}
+      />
+      <button onClick={handleLogin}>Login</button>
     </div>
   );
 };
