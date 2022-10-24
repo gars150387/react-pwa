@@ -1,10 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import {useStytchSession} from "@stytch/stytch-react"
+import {useStytch, useStytchSession} from "@stytch/stytch-react"
 
 export const Navbar = () => {
   const session = useStytchSession()
-
+  const client = useStytch()
   const logoutSession = async() => {
     await client.session.revoke()
   }
