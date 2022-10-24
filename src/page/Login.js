@@ -3,18 +3,14 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 
 export const Login = () => {
-    const [email, setEmail] = useState("")
+  const [email, setEmail] = useState("");
   const client = useStytch();
-  const navigate = useNavigate()
-
-  console.log( email )
+  const navigate = useNavigate();
   const handleLogin = async () => {
     await client.magicLinks.email.loginOrCreate(email);
-    console.log(email)
-    alert("Login successfully")
-    navigate("/account")
+    alert("Login successfully");
+    navigate("/account");
   };
-
   return (
     <div style={{ paddingBottom: "25px" }}>
       <input
