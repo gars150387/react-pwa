@@ -8,7 +8,7 @@ export const Login = () => {
   const navigate = useNavigate()
 
   console.log( email )
-  const handleLogin = async (email) => {
+  const handleLogin = async () => {
     await client.magicLinks.email.loginOrCreate(email);
     console.log(email)
     alert("Login successfully")
