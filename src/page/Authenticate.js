@@ -18,9 +18,8 @@ if(session){
     }).then(() => {
         alert("Successfully authentcated!")
         navigate(0)
-    })
-}
-    }, [client, session])
+    })}
+    },[client,session])
     
   return (
     <div>Loading...</div>
