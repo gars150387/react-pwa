@@ -1,14 +1,22 @@
-import React from 'react';
-import './App.css';
+import { Routes, Router, Route } from "react-router-dom"
+import { Navbar } from "./component/Navbar"
+import { Account } from "./page/Account"
+import { Home } from "./page/Home"
+import { Login } from "./page/Login"
+import { Register } from "./page/Register"
 
-function App() {
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-       <h1>Hola</h1>
-      </header>
+    <div>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={ <Home /> } />
+        <Route path="login" element={ <Login /> } />
+        <Route path="/register" element={ <Register /> } />
+        <Route path="/account" element={ <Account /> } />
+      </Routes>
+      
+      
     </div>
-  );
+  )
 }
-
-export default App;
