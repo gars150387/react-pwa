@@ -7,8 +7,10 @@ export const Login = () => {
   const client = useStytch();
   const navigate = useNavigate()
 
+  console.log( email )
   const handleLogin = async (email) => {
     await client.magicLinks.email.loginOrCreate(email);
+    console.log(email)
     alert("Login successfully")
     navigate("/account")
   };

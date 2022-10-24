@@ -4,6 +4,10 @@ import {useStytchSession} from "@stytch/stytch-react"
 
 export const Navbar = () => {
   const session = useStytchSession()
+
+  const logoutSession = async() => {
+    await client.session.revoke()
+  }
   return (
     <div>
       <ul>
